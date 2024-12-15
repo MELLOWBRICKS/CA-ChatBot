@@ -1,0 +1,197 @@
+@font-face {
+    font-family: "SanFrancisco";
+    src: url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+         url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+}
+
+body {  
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: normal;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background: #1e1e1e;
+    color: #e0e0e0;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #2c2c2c; /* Dark container background */
+}
+
+header {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #3c3c3c63;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    flex-direction: column;
+}
+
+.logo {
+    
+    border-radius: 1000px;
+    padding: 10px;
+    background: black;
+    height: 50px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#chat {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    flex: 1;
+    overflow-y: scroll;
+    background: #2c2c2c;
+    scrollbar-width: none;
+}
+
+.imessage {
+    background-color: #2e2e2e; /* Dark background for chat bubbles */
+    border: 1px solid #3c3c3c; /* Slightly lighter border */
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    font-family: "SanFrancisco";
+    font-size: 1.25rem;
+}
+
+.imessage p {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    max-width: 75%;
+    padding: 0.5rem 0.875rem;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.imessage p::before,
+.imessage p::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+}
+
+p.from-me {
+    align-self: flex-end;
+    background-color: #007aff; /* Blue background for user messages */
+    color: #fff; /* White text for user messages */
+}
+
+p.from-me::before {
+    border-bottom-left-radius: 0.8rem 0.7rem;
+    border-right: 1rem solid #007aff;
+    right: -0.35rem;
+    transform: translate(0, -0.1rem);
+}
+
+p.from-me::after {
+    background-color: #2e2e2e; /* Dark background for the tail */
+    border-bottom-left-radius: 0.5rem;
+    right: -40px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+}
+
+p[class^="from-"] {
+    margin: 0.5rem 0;
+    width: fit-content;
+}
+
+p.from-me ~ p.from-me {
+    margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:not(:last-child) {
+    margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:last-child {
+    margin-bottom: 0.5rem;
+}
+
+p.from-them {
+    align-items: flex-start;
+    background-color: #3c3c3c; /* Light grey background for bot messages */
+    color: #e0e0e0; /* Light text color for bot messages */
+}
+
+p.from-them::before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #3c3c3c;
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+}
+
+p.from-them::after {
+    background-color: #2e2e2e; /* Dark background for the tail */
+    border-bottom-right-radius: 0.5rem;
+    left: 20px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #2c2c2c; /* Dark background for input area */
+    border-top: 1px solid #333; /* Dark border */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 20px;
+    background-color: #3c3c3c; /* Dark input background */
+    color: #e0e0e0; /* Light text color */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007aff; /* Blue background for button */
+    color: #fff; /* White text for button */
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #0051a8; /* Darker blue on hover */
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        margin: 0 0.5rem;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .imessage {
+        font-size: 1.05rem;
+    }
+
+    .imessage p {
+        margin: 0.5rem 0;
+    }
+}
